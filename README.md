@@ -8,3 +8,5 @@
 - React Query
 - SuperBase
 - date-fns
+- react-hot-tosat
+- react-hook-form
