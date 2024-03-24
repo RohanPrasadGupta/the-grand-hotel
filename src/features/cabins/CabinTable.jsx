@@ -41,7 +41,7 @@ function CabinTable() {
 
   if (isLoading) return <Spinner />;
 
-  console.log(error);
+  console.log("In Cabin Table Error Log : ", error);
   return (
     <Table role="table">
       <TableHeader role="row">

@@ -1,6 +1,6 @@
 # Whole Project Includes the Knowledge of :
 
-# Visit the WebSite <a href='https://rpg-the-grand-hotel.netlify.app/dashboard'>Click 🐱‍🏍</a>
+# Visit the WebSite <a href='https://rpg-the-grand-hotel.netlify.app/'>Click 🐱‍🏍</a>
 
 - React Router Dom
 - Styled Components
