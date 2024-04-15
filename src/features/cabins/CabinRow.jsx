@@ -1,12 +1,7 @@
-import styled from "styled-components";
-
-import PropTypes from "prop-types";
 import { formatCurrency } from "../../utils/helpers";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteCabin } from "../../services/apiCabins";
-import toast from "react-hot-toast";
-import { useState } from "react";
-import CreateCabinForm from "./CreateCabinForm";
+import styled from "styled-components";
+import altImage from "../../data/cabins/cabin-001.jpg";
+import PropTypes from "prop-types";
 
 const TableRow = styled.div`
   display: grid;
@@ -48,58 +43,28 @@ const Discount = styled.div`
 `;
 
 function CabinRow({ cabin }) {
-  // console.log("cabin Data", cabin);
-
-  const [showForm, setShowForm] = useState(false);
-
-  const {
-    id: cabinId,
-    name,
-    image,
-    regularPrice,
-    discount,
-    maxCapacity,
-  } = cabin;
-
-  // console.log(typeof cabin);
-
-  const queryClient = useQueryClient();
-
-  const { isLoading: isDeleting, mutate } = useMutation({
-    mutationFn: deleteCabin,
-    onSuccess: () => {
-      toast.success("Cabin Deleted Success");
-      queryClient.invalidateQueries({
-        queryKey: ["cabins"],
-      });
-    },
-
-    onError: (err) => toast.error(err.message),
-  });
+  const { discount, maxCapacity, name, regularPrice } = cabin;
 
   return (
-    <>
-      <TableRow role="row">
-        <Img src={image} />
-        <Cabin>{name}</Cabin>
-        <div>Fits up to {maxCapacity} guests.</div>
-        <Price>{formatCurrency(regularPrice)}</Price>
-        <Discount>{formatCurrency(discount)}</Discount>
-        <div>
-          <button onClick={() => setShowForm((show) => !show)}>Edit</button>
-          <button onClick={() => mutate(cabinId)} disabled={isDeleting}>
-            Delete
-          </button>
-        </div>
-      </TableRow>
-
-      {showForm && <CreateCabinForm cabinToEdit={cabin} />}
-    </>
+    <TableRow>
+      <Img src={altImage} alt={altImage} />
+      <Cabin>{name}</Cabin>
+      <div>Fit for {maxCapacity} guests</div>
+      <Price>{formatCurrency(regularPrice)}</Price>
+      <Discount>{formatCurrency(discount)}</Discount>
+      <button>Delete</button>
+    </TableRow>
   );
 }
 
-export default CabinRow;
-
 CabinRow.propTypes = {
-  cabin: PropTypes.object.isRequired,
+  cabin: PropTypes.shape({
+    discount: PropTypes.number.isRequired,
+    maxCapacity: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    regularPrice: PropTypes.number.isRequired,
+    // Add more prop types as needed
+  }).isRequired,
 };
+
+export default CabinRow;

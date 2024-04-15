@@ -1,12 +1,10 @@
-import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import {
-  HiOutlineHome,
-  HiOutlineCog6Tooth,
-  HiOutlineCalendarDays,
-  HiOutlineHomeModern,
-  HiOutlineUsers,
-} from "react-icons/hi2";
+import styled from "styled-components";
+import { HiOutlineHome } from "react-icons/hi";
+import { HiCalendarDays, HiHomeModern } from "react-icons/hi2";
+import { FaUserTie } from "react-icons/fa6";
+import { IoSettingsOutline } from "react-icons/io5";
+import { FaDatabase } from "react-icons/fa6";
 
 const NavList = styled.ul`
   display: flex;
@@ -53,43 +51,51 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-function MainNav() {
+const MainNav = () => {
   return (
-    <nav>
-      <NavList>
-        <li>
-          <StyledNavLink to="/dashboard">
-            <HiOutlineHome />
-            <span>Home</span>
-          </StyledNavLink>
-        </li>
-        <li>
-          <StyledNavLink to="/bookings">
-            <HiOutlineCalendarDays />
-            <span>Bookings</span>
-          </StyledNavLink>
-        </li>
-        <li>
-          <StyledNavLink to="/cabins">
-            <HiOutlineHomeModern />
-            <span>Cabins</span>
-          </StyledNavLink>
-        </li>
-        <li>
-          <StyledNavLink to="/users">
-            <HiOutlineUsers />
-            <span>Users</span>
-          </StyledNavLink>
-        </li>
-        <li>
-          <StyledNavLink to="/settings">
-            <HiOutlineCog6Tooth />
-            <span>Settings</span>
-          </StyledNavLink>
-        </li>
-      </NavList>
-    </nav>
+    <div>
+      <nav>
+        <NavList>
+          <li>
+            <StyledNavLink to="dashboard">
+              <HiOutlineHome />
+              Home
+            </StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="bookings">
+              <HiCalendarDays />
+              Bookings
+            </StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="cabins">
+              <HiHomeModern />
+              Cabins
+            </StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="users">
+              <FaUserTie />
+              Users
+            </StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="settings">
+              <IoSettingsOutline />
+              Settings
+            </StyledNavLink>
+          </li>
+          <li>
+            <StyledNavLink to="database">
+              <FaDatabase />
+              database
+            </StyledNavLink>
+          </li>
+        </NavList>
+      </nav>
+    </div>
   );
-}
+};
 
 export default MainNav;

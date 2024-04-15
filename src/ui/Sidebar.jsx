@@ -2,24 +2,23 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
 
-const StyledSidebar = styled.aside`
+const StyledSideBar = styled.aside`
   background-color: var(--color-grey-0);
   padding: 3.2rem 2.4rem;
   border-right: 1px solid var(--color-grey-100);
-  grid-row: 1 / -1;
-
+  grid-row: 1/-1;
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
 `;
 
-function Sidebar() {
+const SideBar = () => {
   return (
-    <StyledSidebar>
+    <StyledSideBar>
       <Logo />
       <MainNav />
-    </StyledSidebar>
+    </StyledSideBar>
   );
-}
+};
 
-export default Sidebar;
+export default SideBar;

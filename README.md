@@ -1,12 +1,20 @@
-# Whole Project Includes the Knowledge of :
+# FrontEnd
 
-# Visit the WebSite <a href='https://rpg-the-grand-hotel.netlify.app/'>Click 🐱‍🏍</a>
+- Vite JSX
+- React-Router-Dom
+- Styled Component
+- React-Icons
+- react-query
+- react-query-devtools
+- react-icons
 
-- React Router Dom
-- Styled Components
-- React Icons
-- React Query
-- SuperBase
-- date-fns
-- react-hot-tosat
-- react-hook-form
+# BackEnd
+
+- nodemon
+- express
+- mongoose
+- cors
+- bcryptjs
+- morgan
+- dotenv
+- jsonwebtoken
