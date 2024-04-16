@@ -2,6 +2,9 @@ import { formatCurrency } from "../../utils/helpers";
 import styled from "styled-components";
 import altImage from "../../data/cabins/cabin-001.jpg";
 import PropTypes from "prop-types";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deleteCabin } from "../../services/apiCabins";
+import toast from "react-hot-toast";
 
 const TableRow = styled.div`
   display: grid;
@@ -43,7 +46,21 @@ const Discount = styled.div`
 `;
 
 function CabinRow({ cabin }) {
-  const { discount, maxCapacity, name, regularPrice } = cabin;
+  const { _id: cabinId, discount, maxCapacity, name, regularPrice } = cabin;
+
+  // console.log(cabinId);
+
+  const queryClient = useQueryClient();
+  const { isLoading: isDeleting, mutate } = useMutation({
+    mutationFn: deleteCabin,
+    onSuccess: () => {
+      toast.success("Cabin Successfully Deleted !!");
+      queryClient.invalidateQueries({
+        queryKey: ["cabins"],
+      });
+    },
+    onError: (err) => toast.error(err.message),
+  });
 
   return (
     <TableRow>
@@ -52,7 +69,9 @@ function CabinRow({ cabin }) {
       <div>Fit for {maxCapacity} guests</div>
       <Price>{formatCurrency(regularPrice)}</Price>
       <Discount>{formatCurrency(discount)}</Discount>
-      <button>Delete</button>
+      <button onClick={() => mutate(cabinId)} disabled={isDeleting}>
+        Delete
+      </button>
     </TableRow>
   );
 }
@@ -63,6 +82,7 @@ CabinRow.propTypes = {
     maxCapacity: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     regularPrice: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired,
     // Add more prop types as needed
   }).isRequired,
 };
