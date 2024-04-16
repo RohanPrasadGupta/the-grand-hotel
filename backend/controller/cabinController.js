@@ -4,6 +4,7 @@ const mergerController = require("./mergerController");
 exports.getAllCabin = mergerController.getAllDoc(Cabin);
 exports.createCabin = mergerController.createOne(Cabin);
 exports.getCabin = mergerController.getOne(Cabin);
+exports.deleteCabin = mergerController.deleteOne(Cabin);
 
 // exports.getAllCabin = async (req, res) => {
 //   try {

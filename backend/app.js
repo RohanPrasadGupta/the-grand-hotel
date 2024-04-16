@@ -19,12 +19,6 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan("dev"));
 
-// app.use(
-//   cors({
-//     origin: "http://127.0.0.1:3000", // Allow requests from this origin
-//   })
-// );
-
 app.use((req, res, next) => {
   console.log("Hellow from middle ware");
   next();
