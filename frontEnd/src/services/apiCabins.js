@@ -12,7 +12,7 @@ export async function getCabins() {
   }
 }
 
-export async function createCabin(cabinData) {
+export async function createNewCabinApi(cabinData) {
   try {
     const response = await axios.post(`${baseUrlCabin}createCabin`, cabinData);
     return response.data;
@@ -22,7 +22,7 @@ export async function createCabin(cabinData) {
   }
 }
 
-export async function getCabin() {
+export async function getCabinApi() {
   try {
     const response = await fetch(
       "http://127.0.0.1:3000/api/cabin/v1/getCabin/661cd31fe9f17ddc323fc248",
@@ -40,7 +40,7 @@ export async function getCabin() {
   }
 }
 
-export async function deleteCabin(id) {
+export async function deleteCabinApi(id) {
   try {
     const response = await axios.delete(`${baseUrlCabin}/getCabin/${id}`);
     console.log(response);
@@ -51,26 +51,19 @@ export async function deleteCabin(id) {
   }
 }
 
-// try {
-//   const response = await fetch(`http://127.0.0.1:3000/api/cabin/v1/${id}`, {
-//     method: "DELETE",
-//   });
-//   const data = await response.json();
-//   console.log(data);
-// } catch (err) {
-//   console.error("Error deleting cabin:", err);
-//   throw err;
-// }
+export async function editCabinApi(id, newCabinData) {
+  try {
+    // console.log(console.log(id));
 
-// try {
-// const response = await fetch(`${baseUrl}/getCabins`, {
-//   method: "GET",
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-// });
-// const data = await response.json();
-// return data.docs;
-// } catch (err) {
-//   console.log(err.message);
-// }
+    // console.log("CabinDataBelow");
+    // console.log(newCabinData.data);
+    const response = await axios.patch(
+      `${baseUrlCabin}/getCabin/${id}`,
+      newCabinData.data
+    );
+    return response;
+  } catch (err) {
+    console.log(err.message);
+    return [];
+  }
+}
