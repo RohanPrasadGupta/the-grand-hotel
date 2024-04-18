@@ -7,7 +7,8 @@ router.route("/getCabins").get(cabinController.getAllCabin);
 router
   .route("/getCabin/:id")
   .get(cabinController.getCabin)
-  .delete(cabinController.deleteCabin);
+  .delete(cabinController.deleteCabin)
+  .patch(cabinController.editCabin);
 
 router.route("/createCabin").post(cabinController.createCabin);
 

@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const cabinModel = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now() },
-  cabinId: { type: Number },
   name: { type: String },
   maxCapacity: { type: Number },
   regularPrice: { type: Number },

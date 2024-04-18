@@ -71,3 +71,26 @@ exports.deleteOne = (Model) => async (req, res) => {
     });
   }
 };
+
+exports.editOne = (Model) => async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedData = req.body;
+
+    const updatedDoc = await Model.findByIdAndUpdate(id, updatedData, {
+      new: true,
+      runValidators: true,
+    });
+    if (!updatedDoc) throw new Error("Unable to update");
+
+    res.status(200).json({
+      status: "success",
+      updatedDoc,
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: "failed",
+      message: err.message,
+    });
+  }
+};
