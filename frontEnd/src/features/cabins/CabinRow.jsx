@@ -46,6 +46,12 @@ const Discount = styled.div`
   color: var(--color-green-700);
 `;
 
+const BtnDic = styled.div`
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+`;
+
 function CabinRow({ cabin }) {
   const [showForm, setShowForm] = useState(false);
   const { isDeleting, deleteCabin } = useDeleteCabin();
@@ -66,14 +72,14 @@ function CabinRow({ cabin }) {
         ) : (
           <span>&mdash;</span>
         )}
-        <div>
+        <BtnDic>
           <button onClick={() => setShowForm((show) => !show)}>
             <CiEdit />
           </button>
           <button onClick={() => deleteCabin(cabinId)} disabled={isDeleting}>
             <CiTrash />
           </button>
-        </div>
+        </BtnDic>
       </TableRow>
       {showForm && <CreateCabinForm cabinToEdit={cabin} />}
     </>

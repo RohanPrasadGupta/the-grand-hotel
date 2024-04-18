@@ -63,7 +63,7 @@ export async function editCabinApi(id, newCabinData) {
     );
     return response;
   } catch (err) {
-    console.log(err.message);
+    // console.log(err.message);
     return [];
   }
 }
