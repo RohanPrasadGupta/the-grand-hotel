@@ -1,10 +1,12 @@
+# Tech Stack I have Been Using for my Project till now....
+
 # FrontEnd
 
 - Vite JSX
 - React-Router-Dom
 - Styled Component
 - React-Icons
-- react-query
+- React-Query
 - react-query-devtools
 - react-icons
 - axios
