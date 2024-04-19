@@ -36,7 +36,7 @@ function CabinTable() {
   if (isLoading) return <Spinner />;
 
   const filterValue = searchParams.get("discount") || "all";
-  console.log(filterValue);
+  // console.log(filterValue);
 
   let filterCabins;
   if (filterValue === "all") filterCabins = cabins;
