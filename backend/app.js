@@ -4,6 +4,8 @@ const cabinRouter = require("./Routers/cabinRouter");
 const guestsRouter = require("./Routers/guestsRouter");
 const settingRouter = require("./Routers/settingRouter");
 const bookingRouter = require("./Routers/bookingRouter");
+const trialRouter = require("./Routers/TrialRouter");
+
 const morgan = require("morgan");
 const cors = require("cors");
 
@@ -29,6 +31,7 @@ app.use("/api/cabin/v1/", cabinRouter);
 app.use("/api/guests/v1/", guestsRouter);
 app.use("/api/setting/v1/", settingRouter);
 app.use("/api/booking/v1/", bookingRouter);
+app.use("/api/Trial/v1/", trialRouter);
 
 app.get("/", (req, res) => {
   res.send("hellow World!");

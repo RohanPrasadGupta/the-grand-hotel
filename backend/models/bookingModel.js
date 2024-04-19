@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const { mongoose, Schema } = require("mongoose");
 
 const bookingModel = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now() },
@@ -13,8 +13,8 @@ const bookingModel = new mongoose.Schema({
   hasBreakFast: { type: Boolean },
   isPaid: { type: Boolean },
   observation: { type: String },
-  cabinId: { type: String },
-  guestId: { type: String },
+  cabinId: [{ type: Schema.Types.ObjectId, ref: "cabin" }],
+  guestId: [{ type: Schema.Types.ObjectId, ref: "guests" }],
 });
 
 const Booking = mongoose.model("booking", bookingModel);
