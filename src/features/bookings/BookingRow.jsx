@@ -43,6 +43,7 @@ function BookingRow({ booking }) {
 
   // console.log(booking);
   const {
+    _id: id,
     endDate,
     numNights,
     startDate,
@@ -88,18 +89,5 @@ function BookingRow({ booking }) {
     </Table.Row>
   );
 }
-
-BookingRow.propTypes = {
-  booking: PropTypes.shape({
-    endDate: PropTypes.instanceOf(Date).isRequired,
-    numNights: PropTypes.number.isRequired,
-    startDate: PropTypes.instanceOf(Date).isRequired,
-    status: PropTypes.oneOf(["unconfirmed", "checked-in", "checked-out"])
-      .isRequired,
-    totalPrice: PropTypes.number.isRequired,
-    guestId: PropTypes.string.isRequired,
-    cabinId: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 export default BookingRow;
