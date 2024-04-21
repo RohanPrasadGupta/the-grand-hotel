@@ -97,8 +97,8 @@ BookingRow.propTypes = {
     status: PropTypes.oneOf(["unconfirmed", "checked-in", "checked-out"])
       .isRequired,
     totalPrice: PropTypes.number.isRequired,
-    guestId: PropTypes.string.isRequired, // Assuming guestId is a string
-    cabinId: PropTypes.string.isRequired, // Assuming cabinId is a string
+    guestId: PropTypes.string.isRequired,
+    cabinId: PropTypes.string.isRequired,
   }).isRequired,
 };
 

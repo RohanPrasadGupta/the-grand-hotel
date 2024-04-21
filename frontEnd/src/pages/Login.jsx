@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import LoginForm from "../features/authentication/LoginForm";
 
 const LoginLayout = styled.main`
   min-height: 100vh;
@@ -8,10 +9,22 @@ const LoginLayout = styled.main`
   justify-content: center;
   gap: 3.2rem;
   background-color: var(--color-grey-50);
+  padding: 5px;
+`;
+
+const LoginHead = styled.h1`
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
 `;
 
 function Login() {
-  return <LoginLayout>Login</LoginLayout>;
+  return (
+    <LoginLayout>
+      <LoginHead>Login</LoginHead>
+      <LoginForm />
+    </LoginLayout>
+  );
 }
 
 export default Login;
