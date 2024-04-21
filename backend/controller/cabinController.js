@@ -4,31 +4,6 @@ const mergerController = require("./mergerController");
 exports.getAllCabin = mergerController.getAllDoc(Cabin);
 exports.createCabin = mergerController.createOne(Cabin);
 exports.getCabin = mergerController.getOne(Cabin);
-exports.deleteCabin = mergerController.deleteOne(Cabin);
-exports.editCabin = mergerController.editOne(Cabin);
-
-// exports.editCabin = async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const updatedCabinData = req.body;
-
-//     const updatedCabin = await Cabin.findByIdAndUpdate(id, updatedCabinData, {
-//       new: true,
-//       runValidators: true,
-//     });
-//     if (!updatedCabin) throw new Error("Unable to update");
-
-//     res.status(200).json({
-//       status: "success",
-//       updatedCabin,
-//     });
-//   } catch (err) {
-//     res.status(500).json({
-//       status: "failed",
-//       message: err.message,
-//     });
-//   }
-// };
 
 // exports.getAllCabin = async (req, res) => {
 //   try {

@@ -7,9 +7,9 @@ export function useCreateuser() {
   const { mutate: createUser, isLoading: isCreating } = useMutation({
     mutationFn: registerUser,
     onSuccess: (data) => {
-      console.log(data);
+      // console.log(data);
       if (data && data.data.status === "success") {
-        console.log(data.data.status);
+        // console.log(data.data.status);
         toast.success("You are sucessfully registered");
         queryClient.invalidateQueries({ queryKey: "users" });
       } else {
